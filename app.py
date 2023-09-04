@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request
 import joblib
+import os
 
 # Cargar el modelo entrenado
-model = joblib.load('models/modelo_regresion.pkl')  # Cargar el modelo previamente guardado
+model_path = os.path.join(os.path.dirname(__file__), 'models', 'modelo_regresion.pkl')
+model = joblib.load(model_path)
 
 # Crear una aplicación Flask
 app = Flask(__name__)
